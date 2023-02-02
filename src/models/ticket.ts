@@ -1,6 +1,7 @@
 export interface Ticket {
-  title?: string;
-  description?: string;
-  date?: Date;
-  author?: string;
+	title?: string;
+	description?: string;
+	date?: Date;
+	student?: string;
+	major?: string;
 }
