@@ -24,3 +24,10 @@
   margin-top: 0.4em;
   background-color: white;
 }
+
+.select-custom {
+  border: 1px solid #282828;
+  border-radius: $borderRadius;
+  height: 35px;
+  width: 50%;
+}

@@ -12,7 +12,20 @@
 	<br>
 	<label for="major">
 		Major <br>
-		<input class="input-custom" type="text" id="major" [formControlName]="'major'">
+		<select name="major" id="major" class="select-custom" [formControlName]="'major'">
+			<option *ngFor="let currentMajor of majors" [value]="currentMajor">
+				{{ currentMajor }}
+			</option>
+		</select>
+	</label>
+	<br>
+	<label for="student">
+		Student <br>
+		<select name="student" id="student" class="select-custom" [formControlName]="'student'">
+			<option *ngFor="let student of students" [value]="student">
+				{{ student }}
+			</option>
+		</select>
 	</label>
 	<br>
 	<button type="submit" class="btn-custom" (click)="addTicket()">Create</button>

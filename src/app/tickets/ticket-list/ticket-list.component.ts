@@ -26,4 +26,7 @@ export class TicketListComponent implements OnInit {
 		this.ticketService.deleteTicket(ticket);
 	}
 
+	archiveTicket(ticket: Ticket) {
+		this.ticketService.archiveTicket(ticket);
+	}
 }

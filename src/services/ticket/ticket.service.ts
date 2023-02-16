@@ -27,7 +27,7 @@ export class TicketService {
 	addTicket(ticket: Ticket) {
 		// You need here to update the list of ticket and then update our observable (Subject) with the new list
 		// More info: https://angular.io/tutorial/toh-pt6#the-searchterms-rxjs-subject
-		this.ticketList.unshift(ticket);// Permet passer l'element en premier de la list
+		this.ticketList.unshift(ticket); // Permet passer l'element en premier de la list
 		// this.ticketList.push(ticket);
 		this.tickets$.next(this.ticketList);
 	}
@@ -36,6 +36,16 @@ export class TicketService {
 		this.index = this.ticketList.indexOf(ticket, 1);
 
 		this.ticketList.splice(this.index, 1);
+		this.tickets$.next(this.ticketList);
+	}
+	
+	archiveTicket(ticket: Ticket) {
+		if (ticket.archived) {
+			ticket.archived = false
+		} else {
+			ticket.archived = true
+		}
+
 		this.tickets$.next(this.ticketList);
 	}
 }
