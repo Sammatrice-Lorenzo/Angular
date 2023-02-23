@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs/index';
 @Injectable({
 	providedIn: 'root'
 })
-export class TicketService {
+export class StudentService {
 	/**
 	 * Services Documentation:
 	 * https://angular.io/docs/ts/latest/tutorial/toh-pt4.html
@@ -24,13 +24,13 @@ export class TicketService {
 	constructor() {
 	}
 
-	addTicket(ticket: Student) {
-		this.studentList.unshift(ticket); // Permet passer l'element en premier de la list
+	addTicket(student: Student) {
+		this.studentList.unshift(student); // Permet passer l'element en premier de la list
 		this.students$.next(this.studentList);
 	}
 
-	deleteTicket(ticket: Student) {
-		this.index = this.studentList.indexOf(ticket, 1);
+	deleteTicket(student: Student) {
+		this.index = this.studentList.indexOf(student, 1);
 
 		this.studentList.splice(this.index, 1);
 		this.students$.next(this.studentList);

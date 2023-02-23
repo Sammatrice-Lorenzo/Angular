@@ -17,7 +17,7 @@ import { HeaderComponent } from './header/header.component';
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule // Import all dependencies
+    ReactiveFormsModule, // Import all dependencies
   ],
   providers: [TicketService], // All the services need to be provided
   bootstrap: [AppComponent]

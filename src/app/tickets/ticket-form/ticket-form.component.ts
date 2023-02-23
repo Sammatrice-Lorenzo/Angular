@@ -21,7 +21,7 @@ export class TicketFormComponent implements OnInit {
 	 */
 	public ticketForm: FormGroup;
 	public majors: major[] = [major.SI, major.GE, major.GB]
-	public students: Student[];
+	public students: Student[] = [];
 
 	constructor(public formBuilder: FormBuilder, public ticketService: TicketService) {
 		// Form creation
@@ -29,8 +29,7 @@ export class TicketFormComponent implements OnInit {
 			title: [''],
 			description: [''],
 			major: [''],
-			student: ['']
-			// major: [major.SI, major.GE, major.GB]
+			student: []
 		});
 		// You can also add validators to your inputs such as required, maxlength or even create your own validator!
 		// More information: https://angular.io/guide/reactive-forms#simple-form-validation
@@ -38,16 +37,31 @@ export class TicketFormComponent implements OnInit {
 	}
 
 	ngOnInit() {
+		this.getStudents()
 	}
 
-	addTicket() {
+	addTicket(): void
+	{
 		const ticketToCreate: Ticket = this.ticketForm.getRawValue() as Ticket;
 		ticketToCreate.date = new Date();
+		ticketToCreate.student = this.getStudent(parseInt(this.ticketForm.getRawValue().student))
 		this.ticketService.addTicket(ticketToCreate);
 	}
 
-	// On va récupérer l'id de la list STUDENTS_MOCKED
-	getIdStudent() {
+	getStudents(): void
+	{
+		for (const student of STUDENTS_MOCKED) {
+			this.students.push(student)
+		}
+	}
+
+	getStudent(id: number): Student
+	{
+		for (const student of this.students) {
+			if (id === student.id) {
+				return student
+			}
+		}
 	}
 
 }

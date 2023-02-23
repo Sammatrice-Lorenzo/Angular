@@ -7,7 +7,7 @@
 	{{ticket.date|date: 'shortTime'}}
 	&nbsp;&nbsp;
 	<i class="far fa-user"></i>
-	{{ticket.student}}
+	{{ticket.student.id}} {{ticket.student.firstname}} {{ticket.student.lastname}}
 	&nbsp;&nbsp;
 	<i class="fas fa-graduation-cap" *ngIf="ticket.major == 'SI'"></i>
 	{{ticket.major}}
